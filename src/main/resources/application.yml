@@ -1,0 +1,22 @@
+zuul:
+  routes:
+    # customize for single routing
+    config-service:
+      path: /config/**
+      url: http://127.0.0.1:60090/
+
+    # customize for multiple routing
+    # FIXME, it not work for now.
+    inventroy:
+      path: /inv/**
+      serviceId: inv-srv
+
+    inventroy:
+      path: /inv2/**
+      serviceId: ninja-inventory-service
+
+inv-srv:
+  ribbon:
+    listOfServers:
+      - http://127.0.0.1:60011
+      - http://127.0.0.1:60012
